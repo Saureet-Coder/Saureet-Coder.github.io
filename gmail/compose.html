@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <div class="grid place-items-center min-h-screen" x-data="data()">
+        
+        <div class="bg-white h-96 w-48 rounded-3xl relative" style="height: 612px; width: 300px; border:8px solid black;">
+            
+            <div class=" absolute w-full     ">
+                  
+            <div class="bg-red-600 p-4 rounded-t-2xl flex">
+                <div class=" top-3 left-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                      </svg>
+                </div>
+                
+                <div class="ml-6 font-semibold text-white text-lg">Compose</div>
+                <div class="text-white ml-10 mt-1 " @click="addMail()">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                      </svg>
+                </div>
+                <div class="text-white mt-1 ml-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                      </svg>
+                </div>
+                <div class="text-white mt-1 ml-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                      </svg>
+                </div>
+            </div>  
+            
+            <div class="flex justify-between  p-3 border border-b-2">
+                <input type="text" x-model="from" class="text-lg text-gray-500 w-full ml-1 " placeholder="From">
+               
+                <div class="mt-1 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                </div>
+            
+            </div>
+            <div class="flex justify-between  p-3 border border-b-2">
+                <input type="text" class="text-lg text-gray-500 w-full " x-model="To" placeholder="To">
+                <div class="mt-1 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                </div>
+            </div>
+            
+            <div class="flex justify-between  p-3 border border-b-2">
+                <input type="text" x-model="subject" class="text-lg text-gray-500 w-full p-2 " placeholder="Subject">
+                <div class="mt-1 ">
+                </div>
+            </div>
+            
+            <div class="flex justify-between  p-3 ">
+                <textarea placeholder="Compose email" x-model="compose" class="text-lg text-gray-800 w-full h-80 border border-black focus:outline-none p-2 rounded"></textarea>
+                <div class="mt-1 ">
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function data(){
+            return{
+                compose: '',
+                subject: '',
+                To: '',
+                from: '',
+
+                addMail(){
+
+                    var toMail = {
+                        compose: this.compose,
+                        subject: this.subject,
+                        To: this.To,
+                        from: this.from,
+                    },
+                    this.addMail.push(toMail);
+                }
+
+            }
+        }
+    </script>
+    
+</body>
+</html>
